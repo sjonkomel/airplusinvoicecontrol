@@ -4,6 +4,7 @@ LARS File Validator and Repair Tool - Fixed GUI
 ==============================================
 
 Simplified and corrected GUI version that avoids the Tkinter layout issues.
+Now supports .lrs file extension.
 """
 
 import os
@@ -346,22 +347,29 @@ class LARSValidatorGUI:
         help_text = """
 LARS File Validator and Repair Tool
 
-This application helps you validate and repair AIRPLUS LARS invoice files before uploading them to your ERP system.
+This application helps you validate and repair AIRPLUS LARS/LRS invoice files before uploading them to your ERP system.
 
 FEATURES:
-- Upload and parse LARS files
+- Upload and parse LARS/LRS files
 - Automatic detection of file format errors
 - Interactive error review and repair
 - Automatic fixes for common issues
 - Export corrected files for ERP upload
 
 HOW TO USE:
-1. Select a LARS file using the Browse button
+1. Select a LARS/LRS file using the Browse button
 2. Click "Parse File" to load and parse the file
 3. Click "Validate" to check for errors
 4. Review errors in the Validation Results tab
 5. Apply automatic fixes in the Repair tab
 6. Export the corrected file in the Export tab
+
+SUPPORTED FILE TYPES:
+- .txt (Text files)
+- .lars (LARS files)
+- .lrs (LRS files)
+- .dat (Data files)
+- Any other text-based files
 
 For command line usage, see the CLI documentation.
         """
@@ -384,11 +392,11 @@ For command line usage, see the CLI documentation.
         self.root.title(title)
     
     def browse_file(self):
-        """Open file dialog to select a LARS file"""
+        """Open file dialog to select a LARS/LRS file"""
         file_path = filedialog.askopenfilename(
-            title="Select LARS File",
+            title="Select LARS/LRS File",
             filetypes=[
-                ("LARS Files", "*.txt;*.lars;*.dat"),
+                ("LARS/LRS Files", "*.txt;*.lars;*.lrs;*.dat"),
                 ("Text Files", "*.txt"),
                 ("All Files", "*.*")
             ]
@@ -412,8 +420,8 @@ For command line usage, see the CLI documentation.
             defaultextension=".txt",
             initialfile=default_name,
             filetypes=[
+                ("LARS/LRS Files", "*.txt;*.lars;*.lrs;*.dat"),
                 ("Text Files", "*.txt"),
-                ("LARS Files", "*.lars"),
                 ("All Files", "*.*")
             ]
         )
