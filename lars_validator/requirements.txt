@@ -1,0 +1,25 @@
+# LARS File Validator and Repair Tool - Requirements
+# ====================================================
+
+# Core dependencies
+python>=3.7
+
+# For GUI (optional)
+# tk is usually included with Python, but you might need:
+# On Ubuntu/Debian: sudo apt-get install python3-tk
+# On Fedora: sudo dnf install python3-tkinter
+# On Windows: Usually included with Python installation
+
+# For development
+pytest>=6.0
+black>=21.0
+flake8>=3.9
+mypy>=0.900
+
+# For packaging
+setuptools>=50.0
+wheel>=0.36.0
+
+# For documentation
+sphinx>=4.0
+sphinx-rtd-theme>=0.5.0
